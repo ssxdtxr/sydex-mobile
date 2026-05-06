@@ -1,9 +1,3 @@
-import { Text, View } from "react-native";
+import { WelcomeScreen } from '@/pages/welcome/WelcomeScreen'
 
-export default function HomeScreen() {
-  return (
-    <View>
-      <Text>dasdsaß</Text>
-    </View>
-  );
-}
+export default WelcomeScreen
