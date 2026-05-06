@@ -1,68 +1,48 @@
-import { useState } from 'react'
-import { View, Text } from 'react-native'
 import { useRouter } from 'expo-router'
+import { Text, View } from 'react-native'
 
+import { signUpSchema, type SignUpForm } from '@/features/auth/model/signUpSchema'
 import { Button } from '@/shared/ui/Button'
+import { Form } from '@/shared/ui/Form'
 import { Input } from '@/shared/ui/Input'
-
-type FormState = {
-  username: string
-  email: string
-  password: string
-}
+import { useZodForm } from '@/shared/lib/useZodForm'
 
 export const SignUpScreen = () => {
   const router = useRouter()
-  const [form, setForm] = useState<FormState>({
-    username: '',
-    email: '',
-    password: '',
-  })
+  const form = useZodForm(signUpSchema, { username: '', email: '', password: '' })
 
-  const handleChange = (field: keyof FormState) => (value: string) => {
-    setForm(prev => ({ ...prev, [field]: value }))
+  const onSubmit = (values: SignUpForm) => {
+    // TODO: API call
+    console.log(values) // eslint-disable-line no-console
   }
 
   return (
     <View className="flex-1 bg-white px-6 pb-12 justify-between">
-
       <View className="flex-1 justify-center gap-6">
         <View className="gap-1">
           <Text className="text-3xl font-bold text-black">Создать аккаунт</Text>
           <Text className="text-base text-gray-400">Заполните данные для регистрации</Text>
         </View>
 
-        <View className="gap-4">
-          <Input
-            label="Имя пользователя"
-            placeholder="Egor"
-            value={form.username}
-            onChangeText={handleChange('username')}
-            autoCapitalize="none"
-          />
-          <Input
-            label="Email"
-            placeholder="example@gmail.com"
-            value={form.email}
-            onChangeText={handleChange('email')}
-            keyboardType="email-address"
-            autoCapitalize="none"
-          />
-          <Input
-            label="Пароль"
-            placeholder="Минимум 8 символов"
-            value={form.password}
-            onChangeText={handleChange('password')}
-            secureTextEntry
-          />
-        </View>
+        <Form form={form}>
+          <Form.Item<SignUpForm> name="username" label="Имя пользователя">
+            <Input placeholder="Egor" autoCapitalize="none" />
+          </Form.Item>
+
+          <Form.Item<SignUpForm> name="email" label="Email">
+            <Input placeholder="example@gmail.com" keyboardType="email-address" autoCapitalize="none" />
+          </Form.Item>
+
+          <Form.Item<SignUpForm> name="password" label="Пароль">
+            <Input placeholder="Минимум 8 символов" secureTextEntry />
+          </Form.Item>
+        </Form>
       </View>
 
       <View className="gap-3">
-        <Button onPress={() => console.log(form)}>Зарегистрироваться</Button>
+        <Button onPress={form.handleSubmit(onSubmit)}>Зарегистрироваться</Button>
         <Button variant="outline" onPress={() => router.back()}>Назад</Button>
       </View>
-
     </View>
   )
 }
