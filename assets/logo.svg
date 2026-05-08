@@ -1,0 +1,13 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="512" height="512" rx="120" fill="#3B82F6"/>
+
+  <!-- Main Chat Bubble -->
+  <path d="M256 120C173.2 120 108 178.4 108 250C108 321.6 173.2 380 256 380C278.8 380 300.4 375.6 320 367.6L385 400L366 337.5C390.8 314.8 404 283.8 404 250C404 178.4 338.8 120 256 120Z"
+        fill="white"/>
+
+  <!-- Lightning / Message Symbol -->
+  <path d="M245 190L195 270H240L225 330L315 235H265L285 190H245Z"
+        fill="#3B82F6"/>
+
+</svg>
