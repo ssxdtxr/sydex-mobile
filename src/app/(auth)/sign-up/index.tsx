@@ -1,3 +1,3 @@
-import { SignUpScreen } from "@/pages/sign-up/SignUpScreen";
+import { SignUpScreen } from "@/pages/(auth)/sign-up/SignUpScreen";
 
 export default SignUpScreen;

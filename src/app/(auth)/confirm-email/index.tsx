@@ -1,3 +1,3 @@
-import { ConfirmEmailScreen } from '@/pages/confirm-email/ConfirmEmailScreen'
+import { ConfirmEmailScreen } from "@/pages/(auth)/confirm-email/ConfirmEmailScreen";
 
-export default ConfirmEmailScreen
+export default ConfirmEmailScreen;

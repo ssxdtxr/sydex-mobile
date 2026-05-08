@@ -19,13 +19,13 @@ export const SignUpScreen = () => {
   }
 
   return (
-    <ScreenLayout hasBack>
-      <View className="flex-1 justify-center gap-6">
-        <View className="gap-1">
-          <Text className="text-3xl font-bold text-black">Создать аккаунт</Text>
-          <Text className="text-base text-gray-400">Заполните данные для регистрации</Text>
-        </View>
+    <ScreenLayout hasBack className="justify-center gap-6">
+      <View className="gap-1">
+        <Text className="text-3xl font-bold text-white">Создать аккаунт</Text>
+        <Text className="text-base text-blue-200">Заполните данные для регистрации</Text>
+      </View>
 
+      <View className="bg-white rounded-3xl p-6">
         <Form form={form}>
           <Form.Item<SignUpForm> name="username" label="Имя пользователя">
             <Input placeholder="Egor" autoCapitalize="none" />
@@ -41,7 +41,7 @@ export const SignUpScreen = () => {
         </Form>
       </View>
 
-      <View className="gap-3">
+      <View className="bg-white rounded-3xl p-6 gap-3">
         <Button onPress={form.handleSubmit(onSubmit)}>Зарегистрироваться</Button>
         <Button variant="outline" onPress={() => router.push('/sign-in')}>Уже есть аккаунт</Button>
       </View>

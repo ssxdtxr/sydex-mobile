@@ -18,13 +18,13 @@ export const SignInScreen = () => {
   }
 
   return (
-    <ScreenLayout hasBack>
-      <View className="flex-1 justify-center gap-6">
-        <View className="gap-1">
-          <Text className="text-3xl font-bold text-black">Добро пожаловать</Text>
-          <Text className="text-base text-gray-400">Войдите в свой аккаунт</Text>
-        </View>
+    <ScreenLayout hasBack className="justify-center gap-6">
+      <View className="gap-1">
+        <Text className="text-3xl font-bold text-white">Добро пожаловать</Text>
+        <Text className="text-base text-blue-200">Войдите в свой аккаунт</Text>
+      </View>
 
+      <View className="bg-white rounded-3xl p-6">
         <Form form={form}>
           <Form.Item<SignInForm> name="username" label="Имя пользователя">
             <Input placeholder="Egor" autoCapitalize="none" />
@@ -36,7 +36,9 @@ export const SignInScreen = () => {
         </Form>
       </View>
 
-      <Button onPress={form.handleSubmit(onSubmit)}>Войти</Button>
+      <View className="bg-white rounded-3xl p-6">
+        <Button onPress={form.handleSubmit(onSubmit)}>Войти</Button>
+      </View>
     </ScreenLayout>
   )
 }

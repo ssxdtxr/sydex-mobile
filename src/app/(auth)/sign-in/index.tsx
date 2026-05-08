@@ -1,3 +1,3 @@
-import { SignInScreen } from '@/pages/sign-in/SignInScreen'
+import { SignInScreen } from "@/pages/(auth)/sign-in/SignInScreen";
 
-export default SignInScreen
+export default SignInScreen;

@@ -50,13 +50,13 @@ export const ConfirmEmailScreen = () => {
   }
 
   return (
-    <ScreenLayout hasBack>
-      <View className="flex-1 justify-center gap-6">
-        <View className="gap-1">
-          <Text className="text-3xl font-bold text-black">Подтверждение</Text>
-          <Text className="text-base text-gray-400">Введите email и код из письма</Text>
-        </View>
+    <ScreenLayout hasBack className="justify-center gap-6">
+      <View className="gap-1">
+        <Text className="text-3xl font-bold text-white">Подтверждение</Text>
+        <Text className="text-base text-blue-200">Введите email и код из письма</Text>
+      </View>
 
+      <View className="bg-white rounded-3xl p-6">
         <Form form={form}>
           <Form.Item<ConfirmEmailForm> name="email" label="Email">
             <Input placeholder="example@gmail.com" keyboardType="email-address" autoCapitalize="none" />
@@ -66,7 +66,9 @@ export const ConfirmEmailScreen = () => {
             <Input placeholder="336362" keyboardType="number-pad" maxLength={6} />
           </Form.Item>
         </Form>
+      </View>
 
+      <View className="bg-white rounded-3xl p-6 gap-4">
         <TouchableOpacity onPress={onResend} disabled={seconds > 0}>
           {seconds > 0 ? (
             <Text className="text-sm text-gray-400">
@@ -77,9 +79,9 @@ export const ConfirmEmailScreen = () => {
             <Text className="text-sm text-blue-500 font-medium">Отправить повторно</Text>
           )}
         </TouchableOpacity>
-      </View>
 
-      <Button onPress={form.handleSubmit(onSubmit)}>Подтвердить</Button>
+        <Button onPress={form.handleSubmit(onSubmit)}>Подтвердить</Button>
+      </View>
     </ScreenLayout>
   )
 }
