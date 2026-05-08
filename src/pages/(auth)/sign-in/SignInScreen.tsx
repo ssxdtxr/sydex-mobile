@@ -15,6 +15,7 @@ export const SignInScreen = () => {
   const onSubmit = (values: SignInForm) => {
     // TODO: API call
     console.log(values) // eslint-disable-line no-console
+    router.replace('/chats')
   }
 
   return (
